@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include head.ejs %>
+
+<body>
+<div class="wrapper">
+
+    <% include sidebar.ejs %>
+
+    <div class="main-panel">
+        <% include navbar.ejs %>
+
+        <div class="content">
+            <div class="container-fluid">
+                <% if (isAuthenticated) { %>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <a href="/csv">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <div class="icon-big icon-warning text-center">
+                                                <i class="ti-write"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <div class="numbers">
+                                                <p>Convert to</p>
+                                                CSV
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr/>
+                                        <div class="stats">
+                                            <i class="ti-cloud-down"></i> Download
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <% } %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"><strong>Contacts Data</strong></h4>
+                                <% if (!isAuthenticated) { %>
+                                <p class="category">Please sign in using Google to view data.</p>
+                                <% } %>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <% if (isAuthenticated) { %>
+                                <table class="table table-striped">
+                                    <thead>
+                                    <th><strong>Name</strong></th>
+                                    <th><strong>E-Mail Address</strong></th>
+                                    <th><strong>Phone Number</strong></th>
+                                    <th><strong>Current Experience</strong></th>
+                                    </thead>
+                                    <tbody>
+                                    <% if(data) {for(var i = 0; i < data.length; i++) { %>
+                                    <tr>
+                                        <td><%= data[i].name %></td>
+                                        <td><%= data[i].email %></td>
+                                        <td><%= data[i].phone %></td>
+                                        <td><%= data[i].experience %></td>
+                                    </tr>
+                                    <% } } %>
+                                    </tbody>
+                                </table>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% include footer.ejs %>
+
+    </div>
+</div>
+</body>
+
+<% include tail.ejs %>
+
+<% if (notification !== null && notification !== undefined) { %>
+<script type="text/javascript">
+    // $(document).ready(function () {
+    $.notify({
+        message: '<%= notification.message %>'
+    }, {
+        type: '<%= notification.type %>',
+        timer: 4000,
+        placement: {
+            from: 'top',
+            align: 'right'
+        }
+    });
+    <%= notification = null %>
+    // });
+</script>
+<% } %>
+
+</html>
+

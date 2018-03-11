@@ -1,0 +1,9 @@
+.DS_Store
+npm-debug.log
+.idea/
+dump.rdb
+/node_modules
+.env
+/.ebextensions
+retriever-app-firebase-adminsdk-h37iv-9c1d95b855.json
+client_secret_344666627442-l2e3cl3sm78gkr31ln15qdodfpkhdov5.apps.googleusercontent.com.json

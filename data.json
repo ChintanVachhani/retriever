@@ -1,0 +1,34 @@
+{
+	"contacts": [
+		{
+			"name": "Chintan Vachhani",
+			"email": "chintan.vachhani@sjsu.edu",
+			"phone": 4695437646,
+			"experience": "Graduate Studies, Internship, Undergraduate Studies"
+		},
+		{
+			"name": "Siddhant Kansal",
+			"email": "siddhant.kansal@sjsu.edu",
+			"phone": 6692208873,
+			"experience": "Graduate Studies, Undergraduate Studies"
+		},
+		{
+			"name": "Vidhan Modi",
+			"email": "vidhan.modi@sjsu.edu",
+			"phone": 6692478822,
+			"experience": "Graduate Studies, Undergraduate Studies"
+		},
+		{
+			"name": "Kishan Bhikadiya",
+			"email": "kishan.bhikadiya@sjsu.edu",
+			"phone": 4086801360,
+			"experience": "Graduate Studies, Undergraduate Studies"
+		},
+		{
+			"name": "Sheena Shah",
+			"email": "sheena.shah@csueastbay.edu",
+			"phone": 4088593273,
+			"experience": "Graduate Studies, Undergraduate Studies"
+		}
+	]
+}
