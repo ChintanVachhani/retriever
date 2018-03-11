@@ -3,6 +3,8 @@ An individual effort to create a responsive web app that retrieves data from Fir
 
 **Note : Please make sure your Firebase is setup.** Create .env file for your system with required variables for database as well as Google Authentication. Also `npm3` is required to install dependencies properly.
 
+- The 'data.json' file is a sample to how the data is supposed to be stored in the firebase.
+
 ## Commands
 
 1. Run the Node Server
