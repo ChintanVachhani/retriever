@@ -15,9 +15,8 @@ let data;
 
 ref.on("value", function (snapshot) {
     data = snapshot.val();
-    console.log(snapshot.val());
 }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
+    console.error("The read failed: " + errorObject.code);
 });
 
 /* GET dashboard page. */
@@ -35,12 +34,20 @@ router.get('/', function (req, res) {
 router.get('/csv', (req, res, next) => {
     req.session.tokens ? next() : res.redirect('/');
 }, function (req, res) {
+    let jsonData = [];
+    let emailList = [];
+    data.forEach((contact) => {
+        if (!(emailList.indexOf(contact.email) > -1)) {
+            emailList.push(contact.email);
+            jsonData.push(contact);
+        }
+    });
+
     let csv;
     const fields = ['name', 'email', 'phone', 'experience'];
     try {
         const parser = new Json2csvParser({fields});
-        csv = parser.parse(data);
-        console.log(csv);
+        csv = parser.parse(jsonData);
     } catch (err) {
         console.error(err);
     }

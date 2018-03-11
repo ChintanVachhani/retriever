@@ -24,7 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'retriever',
     saveUninitialized: true,
-    resave: true
+    resave: true,
+    cookie: {
+        maxAge: 3600000
+    }
 }));
 
 const routes = require('./routes');
