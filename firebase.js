@@ -1,4 +1,5 @@
 // firebase admin setup
+const path = require('path');
 const firebaseAdmin = require('firebase-admin');
 const serviceAccount = require(path.join(__dirname, process.env.SERVICE_ACCOUNT_KEY));
 firebaseAdmin.initializeApp({
